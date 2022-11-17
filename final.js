@@ -61,21 +61,47 @@ class Enfermeros extends Profesionales {
     }
 }
 
-let doctor = []
+
 let enfermero = []
 let paciente = []
 
-let doctor1 = new Doctores(nombre, apellido, matricula, pacientes, especialidad)
-doctor.push(doctor1)
-let doctor2 = new Doctores(maria, rozas, 54321, 4, pediatria)
-let doctor3 = new Doctores(laura, gimenez, 56898, 5, cardiologia)
-console.log(doctor1.infoDoc())
-console.log(doctor2.infoDoc())
-console.log(doctor3.infoDoc())
+/* do {
+    var color = prompt(`color`)
+    var ruedas = parseInt(prompt(`ruedas`))
+    var cilindrada = parseInt(prompt(`cilindrada`))
+    var velocidad = parseInt(prompt(`velocidad`))
+    if (ruedas === 2) {
+        let moto1 = new Moto(velocidad, cilindrada, color, ruedas)
+        motos.push(moto1)
+        color;
 
-let enfermero1 = new Enfermeros(martina, gonzalez, 123, 3, true)
-let enfermero2 = new Enfermeros(jose, gomez, 321, 3, true)
-let enfermero3 = new Enfermeros(eduardo, martinez, 654, 8, false)
-console.log(enfermero1.infoEnf())
-console.log(enfermero2.infoEnf())
-console.log(enfermero3.infoEnf())
+    } else {
+        let auto1 = new Coche(velocidad, cilindrada, color, ruedas)
+        coches.push(auto1)
+
+    } */
+
+    let doctor = []
+         nombre = prompt('nombre')
+         apellido = prompt(`apellido`)
+         matricula = prompt(`apellido`)
+         pacientes = prompt(`apellido`)
+         especialidad = prompt(`apellido`)
+        let doctor1 = new Doctores(nombre, apellido, matricula, pacientes, especialidad)
+    doctor.push(doctor1)
+
+   /*  let doctor = []
+let doctor2 = new Doctores(maria, rozas, 54321, 4, pediatria) */
+  //  let doctor3 = new Doctores(laura, gimenez, 56898, 5, cardiologia)
+   console.log(Doctores.infoDoc(doctor1))
+ /*   doctor.push(doctor2)
+console.log(Doctores.infoDoc(doctor2))
+doctor.push(doctor2) */
+   // console.log(doctor3.infoDoc())
+
+    let enfermero1 = new Enfermeros(martina, gonzalez, 123, 3, true)
+    let enfermero2 = new Enfermeros(jose, gomez, 321, 3, true)
+    let enfermero3 = new Enfermeros(eduardo, martinez, 654, 8, false)
+    console.log(enfermero1.infoEnf())
+    console.log(enfermero2.infoEnf())
+    console.log(enfermero3.infoEnf())
