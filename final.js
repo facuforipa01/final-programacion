@@ -1,3 +1,7 @@
+let enfermero = []
+let paciente = []
+let doctor = []
+
 class Clinica {
     constructor(nombre, duenio, respJuridica, doctores, enfermeros) {
         this.nombre = nombre
@@ -7,18 +11,6 @@ class Clinica {
         this.enfermeros = enfermeros
     }
 }
-
-class Pacientes {
-    constructor(nombre, apellido, dni, fechaNac, turno, obraSocial) {
-        this.nombre = nombre
-        this.apellido = apellido
-        this.dni = dni
-        this.fechaNac = fechaNac
-        this.turno = turno
-        this.obraSocial = obraSocial
-    }
-}
-
 class Profesionales {
     constructor(nombre, apellido, matricula, pacientes) {
         this.nombre = nombre
@@ -27,7 +19,15 @@ class Profesionales {
         this.pacientes = pacientes
     }
 }
-
+class Pacientes extends Profesionales {
+    constructor(nombre, apellido, dni, fechaNac, turno, obraSocial) {
+        super(nombre, apellido);
+        this.dni = dni
+        this.fechaNac = fechaNac
+        this.turno = turno
+        this.obraSocial = obraSocial
+    }
+}
 class Doctores extends Profesionales {
     constructor(nombre, apellido, matricula, pacientes, especialidad) {
         super(nombre, apellido, matricula, pacientes);
@@ -46,8 +46,6 @@ class Doctores extends Profesionales {
         hora: ${this.hora}`
     }
 }
-
-
 class Enfermeros extends Profesionales {
     constructor(nombre, apellido, matricula, pacientes, licenciatura) {
         super(nombre, apellido, matricula, pacientes);
@@ -61,47 +59,58 @@ class Enfermeros extends Profesionales {
     }
 }
 
+//pedido de informacion sobre el cliente + turno
 
-let enfermero = []
-let paciente = []
+do {
+    cont=0
+    cont=cont+1
+    var nombreP = prompt('nombre')
+    var apellidoP = prompt(`apellido`)
+    var dniP = prompt(`dni`)
+    var fechaNacP = prompt(`ingrese su fecha de nacimiento`)
+    var turnoP = prompt("a que hora va a querer el turno?")
+    var obraSocialP = prompt("que obra social posee?")
 
-/* do {
-    var color = prompt(`color`)
-    var ruedas = parseInt(prompt(`ruedas`))
-    var cilindrada = parseInt(prompt(`cilindrada`))
-    var velocidad = parseInt(prompt(`velocidad`))
-    if (ruedas === 2) {
-        let moto1 = new Moto(velocidad, cilindrada, color, ruedas)
-        motos.push(moto1)
-        color;
+    var pacienteX = new Pacientes(nombreP, apellidoP, dniP, fechaNacP, turnoP, obraSocialP)
 
-    } else {
-        let auto1 = new Coche(velocidad, cilindrada, color, ruedas)
-        coches.push(auto1)
+    paciente.push(pacienteX)
 
-    } */
 
-    let doctor = []
-         nombre = prompt('nombre')
-         apellido = prompt(`apellido`)
-         matricula = prompt(`apellido`)
-         pacientes = prompt(`apellido`)
-         especialidad = prompt(`apellido`)
-        let doctor1 = new Doctores(nombre, apellido, matricula, pacientes, especialidad)
-    doctor.push(doctor1)
+} while (cont<1);
 
-   /*  let doctor = []
-let doctor2 = new Doctores(maria, rozas, 54321, 4, pediatria) */
-  //  let doctor3 = new Doctores(laura, gimenez, 56898, 5, cardiologia)
-   console.log(Doctores.infoDoc(doctor1))
- /*   doctor.push(doctor2)
+console.log(pacienteX)
+
+/* let nombre = prompt('nombre')
+let apellido = prompt(`apellido`)
+let matricula = prompt(`matricula`)
+paciente = prompt(`apellido`)
+let especialidad = prompt(`especialidad`)
+let doctor1 = new Doctores(nombre, apellido, matricula, especialidad) */
+
+let doctor2 = new Doctores("maria", "rozas", 54321, 4, "pediatria")
+doctor.push(doctor2)
+console.log(doctor2.infoDoc())
+
+
+
+let doctor3 = new Doctores("laura", "gimenez", 56898, 5, "cardiologia")
+doctor.push(doctor3)
+console.log(doctor3.infoDoc())
+
+/*   doctor.push(doctor2)
 console.log(Doctores.infoDoc(doctor2))
 doctor.push(doctor2) */
-   // console.log(doctor3.infoDoc())
+// console.log(doctor3.infoDoc()) */  
+//console.log(doctor1.infoDoc())
 
-    let enfermero1 = new Enfermeros(martina, gonzalez, 123, 3, true)
-    let enfermero2 = new Enfermeros(jose, gomez, 321, 3, true)
-    let enfermero3 = new Enfermeros(eduardo, martinez, 654, 8, false)
-    console.log(enfermero1.infoEnf())
-    console.log(enfermero2.infoEnf())
-    console.log(enfermero3.infoEnf())
+let enfermero1 = new Enfermeros("facu", "ruiz", 321, 3, true)
+console.log(enfermero1.infoEnf())
+
+let enfermero2 = new Enfermeros("martina", "martinez", 654, 8, false)
+console.log(enfermero2.infoEnf())
+
+let enfermero3 = new Enfermeros("jose", "gomez", 321, 3, true)
+console.log(enfermero3.infoEnf())
+
+//clase turno que extienda de pacientes y de doctores
+//clase paciente extiende de doctor y turno extiende de paciente
